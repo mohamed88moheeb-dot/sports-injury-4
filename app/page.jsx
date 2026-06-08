@@ -183,7 +183,7 @@ export default function Page() {
 
       {!user && <AuthCard authMode={authMode} setAuthMode={setAuthMode} authForm={authForm} setAuthForm={setAuthForm} handleAuth={handleAuth} authMessage={authMessage} />}
 
-      <section className="hero-card">
+      <section className="hero-card app-section app-section-light">
         <div>
           <p className="eyebrow">Evidence-driven beta</p>
           <h2>Build a plan around the injury you actually have.</h2>
@@ -218,7 +218,7 @@ export default function Page() {
 
 function AuthCard({ authMode, setAuthMode, authForm, setAuthForm, handleAuth, authMessage }) {
   return (
-    <section className="auth-card">
+    <section className="auth-card app-section app-section-soft">
       <div>
         <p className="eyebrow">Account access</p>
         <h3>{authMode === 'signin' ? 'Sign in to save progress' : 'Create a tester account'}</h3>
@@ -240,7 +240,7 @@ function AuthCard({ authMode, setAuthMode, authForm, setAuthForm, handleAuth, au
 function Dashboard({ profile, stats, setActiveTab, saving }) {
   if (!profile) {
     return (
-      <section className="empty-state">
+      <section className="empty-state app-section app-section-light">
         <BodyPictogram type="assessment" />
         <h2>Start with the assessment.</h2>
         <p>Your home dashboard will appear here after the app builds your recovery plan.</p>
@@ -298,7 +298,7 @@ function Dashboard({ profile, stats, setActiveTab, saving }) {
 
 function Assessment({ assessment, setAssessment, toggleArray, generateProfile }) {
   return (
-    <section className="assessment-grid">
+    <section className="assessment-grid app-section app-section-soft">
       <div className="section-card span-2">
         <p className="eyebrow">Step 1</p>
         <h2>Injury profile</h2>
@@ -377,7 +377,7 @@ function PlanView({ profile, completeDay, setActiveTab }) {
   if (!profile) return <section className="empty-state"><h2>No plan yet.</h2><p>Complete the assessment to create your day-by-day plan.</p><button className="primary-btn" onClick={() => setActiveTab('assessment')}>Open assessment</button></section>;
 
   return (
-    <section className="plan-shell">
+    <section className="plan-shell app-section app-section-light">
       <div className="plan-intro">
         <p className="eyebrow">Recovery plan</p>
         <h2>{profile.regionName}</h2>
@@ -486,7 +486,7 @@ function PlanView({ profile, completeDay, setActiveTab }) {
 function Checkin({ addCheckin, checkins }) {
   const [status, setStatus] = useState({ pain: 2, confidence: 60, swelling: 'No change', response: 'Stable', notes: '' });
   return (
-    <section className="checkin-grid">
+    <section className="checkin-grid app-section app-section-soft">
       <div className="section-card">
         <p className="eyebrow">Daily check-in</p>
         <h2>How did the injury respond?</h2>
@@ -519,7 +519,7 @@ function Checkin({ addCheckin, checkins }) {
 
 function Coach({ chat, chatInput, setChatInput, sendChat }) {
   return (
-    <section className="coach-card">
+    <section className="coach-card app-section app-section-dark">
       <p className="eyebrow">Recovery coach</p>
       <h2>Ask about pain, training, or returning to sport.</h2>
       <div className="chat-window">
