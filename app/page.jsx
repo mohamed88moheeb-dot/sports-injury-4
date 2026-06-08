@@ -250,7 +250,14 @@ function Dashboard({ profile, stats, setActiveTab, saving }) {
   }
 
   return (
-    <section className="dashboard-grid">
+    <section className="dashboard-grid app-section app-section-light">
+      <div className="section-header span-2">
+        <div>
+          <span className="section-kicker">Home</span>
+          <h2 className="section-title">Your recovery dashboard</h2>
+          <p className="section-description">See your injury, expected return range, current phase, today’s session, and overall progress.</p>
+        </div>
+      </div>
       <div className="summary-card span-2">
         <div className="summary-top">
           <div>
@@ -299,6 +306,13 @@ function Dashboard({ profile, stats, setActiveTab, saving }) {
 function Assessment({ assessment, setAssessment, toggleArray, generateProfile }) {
   return (
     <section className="assessment-grid app-section app-section-soft">
+      <div className="section-header">
+        <div>
+          <span className="section-kicker">Assessment</span>
+          <h2 className="section-title">Build your injury profile</h2>
+          <p className="section-description">Answer each section once. Your plan adjusts to the injury area, grade, symptoms, sport demands, and available equipment.</p>
+        </div>
+      </div>
       <div className="section-card span-2">
         <p className="eyebrow">Step 1</p>
         <h2>Injury profile</h2>
@@ -346,7 +360,7 @@ function Assessment({ assessment, setAssessment, toggleArray, generateProfile })
         <textarea placeholder="Describe the story in your own words. Example: I felt a pull while sprinting, pain is high when I lengthen the leg, walking is okay." value={assessment.story} onChange={(e) => setAssessment({ ...assessment, story: e.target.value })} />
       </div>
 
-      <div className="section-card span-2 redflag-card">
+      <div className="section-card span-2 redflag-card app-section-muted">
         <div className="section-heading-row">
           <div>
             <p className="eyebrow">Optional safety screen</p>
@@ -374,10 +388,17 @@ function PlanView({ profile, completeDay, setActiveTab }) {
   const [openDay, setOpenDay] = useState('0-0-0');
   const [openAlt, setOpenAlt] = useState({});
 
-  if (!profile) return <section className="empty-state"><h2>No plan yet.</h2><p>Complete the assessment to create your day-by-day plan.</p><button className="primary-btn" onClick={() => setActiveTab('assessment')}>Open assessment</button></section>;
+  if (!profile) return <section className="empty-state app-section app-section-light"><h2>No plan yet.</h2><p>Complete the assessment to create your day-by-day plan.</p><button className="primary-btn" onClick={() => setActiveTab('assessment')}>Open assessment</button></section>;
 
   return (
     <section className="plan-shell app-section app-section-light">
+      <div className="section-header">
+        <div>
+          <span className="section-kicker">Recovery plan</span>
+          <h2 className="section-title">Phase by phase recovery</h2>
+          <p className="section-description">Open each phase, week, and day to view the exact session, mobility, main exercises, and easier options.</p>
+        </div>
+      </div>
       <div className="plan-intro">
         <p className="eyebrow">Recovery plan</p>
         <h2>{profile.regionName}</h2>
@@ -487,6 +508,13 @@ function Checkin({ addCheckin, checkins }) {
   const [status, setStatus] = useState({ pain: 2, confidence: 60, swelling: 'No change', response: 'Stable', notes: '' });
   return (
     <section className="checkin-grid app-section app-section-soft">
+      <div className="section-header">
+        <div>
+          <span className="section-kicker">Check-in</span>
+          <h2 className="section-title">Track today’s response</h2>
+          <p className="section-description">Use pain, confidence, swelling, and next-day response to decide whether to progress, repeat, or regress.</p>
+        </div>
+      </div>
       <div className="section-card">
         <p className="eyebrow">Daily check-in</p>
         <h2>How did the injury respond?</h2>
@@ -520,6 +548,13 @@ function Checkin({ addCheckin, checkins }) {
 function Coach({ chat, chatInput, setChatInput, sendChat }) {
   return (
     <section className="coach-card app-section app-section-dark">
+      <div className="section-header">
+        <div>
+          <span className="section-kicker">Recovery coach</span>
+          <h2 className="section-title">Ask before you push harder</h2>
+          <p className="section-description">Use this when you feel pain, uncertainty, or the urge to return to sport early.</p>
+        </div>
+      </div>
       <p className="eyebrow">Recovery coach</p>
       <h2>Ask about pain, training, or returning to sport.</h2>
       <div className="chat-window">
